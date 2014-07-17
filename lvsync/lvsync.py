@@ -72,7 +72,7 @@ class Helper(object):
                 print 'Snapshot marked as invalid: %s' % snapshot
                 sys.exit(1)
             if version != 1:
-                print 'Unsupported snapshot version: %s' version)
+                print 'Unsupported snapshot version: %s' % version
                 sys.exit(1)
 
             # chunk size in bytes
@@ -196,5 +196,8 @@ if __name__ == '__main__':
         # run lvsync in server mode
         main.server(options.destination)
     else:
+        if len(sys.argv) < 3:
+            print 'Usage: lvsync /dev/<vg>/<snap-name> root@<server>:/dev/<vg>/<lv-name>'
+            sys.exit(1)
         # client mode
         main.client()
