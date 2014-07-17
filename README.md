@@ -11,14 +11,13 @@ Task:<br>
   Logical volume path (host1): <code>/dev/vg/disk1</code> (e.g. size: 10G)
 
 Solution:<br>
-
 - Create on running virtual machine lvm-snapshot:<br>
 lvcreate -s disk1-snap -L 1G vg/disk1
 
 - Create new logical volume on remote host2 with same or bigger size:<br>
 lvcreate -s disk1-mgr -L 10G vg
 
-Send new snapshot to remote host2 using dd or run:<br>
+- Send new snapshot to remote host2 using dd or run:<br>
 lvsync /dev/vg/disk1-snap root@host2:/dev/vg/disk1-mgr
 
       First need to send created snapshot to remote server.
@@ -28,7 +27,7 @@ lvsync /dev/vg/disk1-snap root@host2:/dev/vg/disk1-mgr
 
 Virtual machine can be runned<br>
 
-After you must shut down virtual machine and run script again to sync only chunks with changed data:
+- After you must shut down virtual machine and run script again to sync only chunks with changed data:
 lvsync /dev/vg/disk1-snap root@host2:/dev/vg/disk1-mgr
   
       First need to send created snapshot to remote server.
@@ -38,7 +37,7 @@ lvsync /dev/vg/disk1-snap root@host2:/dev/vg/disk1-mgr
 
       Found 2672 changed chunks.
       Send chunks to remote volume? [yes/no]: yes
-
+</code>
 
 Links
 ======
