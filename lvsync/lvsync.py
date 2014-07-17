@@ -143,11 +143,10 @@ class MainHandler(object):
             'remote': dst_volume
         }
         # if need send snapshot to remote server (vm can be running)
-        SEND_SNAPSHOT = raw_input('''
-            First need to send created snapshot to remote server.
-            Type 'no' if you has already sent volume manually).
-            Command: \033[1;32m%s\033[1;m
-            Run sync? [yes/no]: ''' % sync_command)
+        print 'First need to send created snapshot to remote server.'
+        print 'Type \'no\' if you has already sent volume manually).'
+        print 'Command: \033[1;32m%s\033[1;m'
+        SEND_SNAPSHOT = raw_input('Run sync? [yes/no]: ')
 
         if SEND_SNAPSHOT == 'yes':
             # run sync command
@@ -155,9 +154,8 @@ class MainHandler(object):
 
         # get diff map (changed chunk addresses)
         diff_map, chunk_size = self.helper.find_diff_map(snapshot)
-        SEND_DIFF = raw_input('''
-            Found %s changed chunks.
-            Send chunks to remote volume? [yes/no]: ''' % len(diff_map))
+        print 'Found %s changed chunks.' % len(diff_map)
+        SEND_DIFF = raw_input('Send chunks to remote volume? [yes/no]: ')
         
         if SEND_DIFF == 'yes':
             # send changed chuncks to remote server
