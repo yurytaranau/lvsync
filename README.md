@@ -7,8 +7,7 @@ Usage example
 ======
 Task:<br>
   We need to migrate logical volume (e.g. used by virtual machine) from host1 to host2 with minimal downtime.<br>
-  Logical volume path (host1):<br>
-    <code>/dev/vg/disk1</code> (e.g. size: 10G)
+  Logical volume path (host1): <code>/dev/vg/disk1</code> (e.g. size: 10G)
 
 Solution:<br>
   1) Create on running virtual machine lvm-snapshot:<br>
