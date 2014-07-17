@@ -20,6 +20,7 @@ Example
  - Send new snapshot to remote host2 using dd or run:<br>
     <code>lvsync /dev/vg/disk1-snap root@host2:/dev/vg/disk1-mgr</code>
 
+
     First need to send created snapshot to remote server.
     Type 'no' if you has already sent volume manually).
     Command: dd if=/dev/vg/disk1-snap bs=1M | pv -ptrb | ssh root@host2 dd of=/dev/vg/disk1-mgr bs=1M
@@ -28,6 +29,7 @@ Example
 
  - After you must shut down virtual machine and run script again to sync only chunks with changed data:
 <code>lvsync /dev/vg/disk1-snap root@host2:/dev/vg/disk1-mgr</code>
+
 
     First need to send created snapshot to remote server.
     Type 'no' if you has already sent volume manually).
