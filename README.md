@@ -5,7 +5,8 @@ Logical Volume Sync Tool
 
 
 Usage example
-======
+=====
+
 Task:<br>
   We need to migrate logical volume (e.g. used by virtual machine) from host1 to host2 with minimal downtime.<br>
   Logical volume path (host1): <code>/dev/vg/disk1</code> (e.g. size: 10G)
@@ -21,10 +22,10 @@ Solution:<br>
 <code>lvsync /dev/vg/disk1-snap root@host2:/dev/vg/disk1-mgr</code>
 
 
-      First need to send created snapshot to remote server.
-      Type 'no' if you has already sent volume manually).
-      Command: dd if=/dev/vg/disk1-snap bs=1M | pv -ptrb | ssh root@host2 dd of=/dev/vg/disk1-mgr bs=1M
-      Run sync? [yes/no]: yes
+> First need to send created snapshot to remote server.
+> Type 'no' if you has already sent volume manually).
+> Command: dd if=/dev/vg/disk1-snap bs=1M | pv -ptrb | ssh root@host2 dd of=/dev/vg/disk1-mgr bs=1M
+> Run sync? [yes/no]: yes
 
 
 Virtual machine can be runned<br>
@@ -33,14 +34,13 @@ Virtual machine can be runned<br>
 <code>lvsync /dev/vg/disk1-snap root@host2:/dev/vg/disk1-mgr</code>
 
 
-      First need to send created snapshot to remote server.
-      Type 'no' if you has already sent volume manually).
-      Command: dd if=/dev/vg/disk1-snap bs=1M | pv -ptrb | ssh root@host2 dd of=/dev/vg/disk1-mgr bs=1M
-      Run sync? [yes/no]: no
+> First need to send created snapshot to remote server.
+> Type 'no' if you has already sent volume manually).
+> Command: dd if=/dev/vg/disk1-snap bs=1M | pv -ptrb | ssh root@host2 dd of=/dev/vg/disk1-mgr bs=1M
+> Run sync? [yes/no]: no
 
-
-      Found 2672 changed chunks.
-      Send chunks to remote volume? [yes/no]: yes
+> Found 2672 changed chunks.
+> Send chunks to remote volume? [yes/no]: yes
 
 
 Links
