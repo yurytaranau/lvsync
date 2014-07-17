@@ -20,24 +20,28 @@ Solution:<br>
 - Send new snapshot to remote host2 using dd or run:<br>
 <code>lvsync /dev/vg/disk1-snap root@host2:/dev/vg/disk1-mgr</code>
 
-      <code>First need to send created snapshot to remote server.
+
+      First need to send created snapshot to remote server.
       Type 'no' if you has already sent volume manually).
       Command: dd if=/dev/vg/disk1-snap bs=1M | pv -ptrb | ssh root@host2 dd of=/dev/vg/disk1-mgr bs=1M
-      Run sync? [yes/no]: yes</code>
+      Run sync? [yes/no]: yes
+
 
 Virtual machine can be runned<br>
 
 - After you must shut down virtual machine and run script again to sync only chunks with changed data:
-<code>lvsync /dev/vg/disk1-snap root@host2:/dev/vg/disk1-mgr
-  
+<code>lvsync /dev/vg/disk1-snap root@host2:/dev/vg/disk1-mgr</code>
+
+
       First need to send created snapshot to remote server.
       Type 'no' if you has already sent volume manually).
       Command: dd if=/dev/vg/disk1-snap bs=1M | pv -ptrb | ssh root@host2 dd of=/dev/vg/disk1-mgr bs=1M
       Run sync? [yes/no]: no
 
+
       Found 2672 changed chunks.
       Send chunks to remote volume? [yes/no]: yes
-</code>
+
 
 Links
 ======
