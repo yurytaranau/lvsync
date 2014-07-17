@@ -144,8 +144,8 @@ class MainHandler(object):
         }
         # if need send snapshot to remote server (vm can be running)
         print 'First need to send created snapshot to remote server.'
-        print 'Type \'no\' if you has already sent volume manually).'
-        print 'Command: \033[1;32m%s\033[1;m'
+        print 'Type \'no\' if you has already sent volume manually.'
+        print 'Command: \033[1;32m%s\033[1;m' % sync_command    
         SEND_SNAPSHOT = raw_input('Run sync? [yes/no]: ')
 
         if SEND_SNAPSHOT == 'yes':

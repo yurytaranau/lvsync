@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
   name = 'lvsync',
   packages = ['lvsync'],
-  version = '201407.1',
+  version = '201407.2',
   description = 'Logical Volume Sync Tool',
   author = 'Yury Taranov',
   author_email = 'yury.taranov@gmail.com',
