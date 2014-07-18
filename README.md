@@ -11,28 +11,28 @@ Example
 
 **Solution:**<br>
 
- - Create on running virtual machine lvm-snapshot:<br>
+ - Create lvm-snapshot on running virtual machine:<br>
     <code>lvcreate -s disk1-snap -L 1G vg/disk1</code>
  
- - Create new logical volume on remote host2 with same or bigger size:<br>
+ - Create new logical volume on remote host2 with the same or bigger size:<br>
     <code>lvcreate -s disk1-mgr -L 10G vg</code>
 
- - Send new snapshot to remote host2 using dd or run:<br>
+ - Send the new snapshot to remote host2 using dd or just run:<br>
     <code>lvsync /dev/vg/disk1-snap root@host2:/dev/vg/disk1-mgr</code>
     
     <pre>
-    First need to send created snapshot to remote server.
-    Type 'no' if you has already sent volume manually).
+    At first you need to send created snapshot to remote server.
+    Type 'no' if you have already sent volume manually.
     Command: dd if=/dev/vg/disk1-snap bs=1M | pv -ptrb | ssh root@host2 dd of=/dev/vg/disk1-mgr bs=1M
     Run sync? [yes/no]: yes
     </pre>
 
- - After you must shut down virtual machine and run script again to sync only chunks with changed data:
+ - Then you have to shut down virtual machine and run script again to sync only chunks with changed data:
 <code>lvsync /dev/vg/disk1-snap root@host2:/dev/vg/disk1-mgr</code>
 
     <pre>
-    First need to send created snapshot to remote server.
-    Type 'no' if you has already sent volume manually).
+    At first you need to send created snapshot to remote server.
+    Type 'no' if you have already sent volume manually.
     Command: dd if=/dev/vg/disk1-snap bs=1M | pv -ptrb | ssh root@host2 dd of=/dev/vg/disk1-mgr bs=1M
     Run sync? [yes/no]: no
     
