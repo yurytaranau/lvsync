@@ -147,11 +147,7 @@ class MainHandler(object):
             'remote': dst_volume
         }
         # if need send snapshot to remote server (vm can be running)
-<<<<<<< HEAD
-        print 'At first we need to send created snapshot to remote server.'
-=======
         print 'At first you need to send created snapshot to remote server.'
->>>>>>> 380c81ed1e42093e14d5235f845739a0702c42b5
         print 'Type \'no\' if you has already sent volume manually.'
         print 'Command: \033[1;32m%s\033[1;m' % sync_command    
         SEND_SNAPSHOT = raw_input('Run sync? [yes/no]: ')
