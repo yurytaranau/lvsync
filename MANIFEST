@@ -3,4 +3,4 @@ setup.cfg
 setup.py
 lvsync/__init__.py
 lvsync/lvsync.py
-scripts/lvsync
+scripts/lvsyncscripts/dd-lvsync

@@ -11,7 +11,7 @@ setup(
   keywords = ['lvm', 'sync', 'dd'],
   classifiers = [],
   scripts=[
-    'scripts/lvsync'
+    'scripts/lvsync',
     'scripts/dd-lvsync'
   ]
 )

@@ -141,7 +141,7 @@ class MainHandler(object):
         origin = self.helper.find_dm_path(src_volume, NEED_ORIGIN=True)
         snapshot = self.helper.find_dm_path(src_volume, NEED_COW=True)
         print "origin: %s, snapshot: %s" % (origin, snapshot)
-        sync_command = '''dd if=%(source)s bs=1M | pv -ptrb | ssh %(server)s dd of=%(remote)s bs=1M''' % {
+        sync_command = '''dd if=%(source)s bs=1M | pv -ptrb | ssh %(server)s dd-lvsync of=%(remote)s bs=1M''' % {
             'source': src_volume,
             'server': dst_server,
             'remote': dst_volume
