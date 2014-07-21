@@ -1,0 +1,18 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use Cwd;
+
+my $dd = '/bin/dd';
+
+for (my $i = 0; $i <= $#ARGV; $i++) {
+    if ($ARGV[$i] =~ m/^of=/) {
+        (my $opt, my $dst) = split(/=/, $ARGV[$i]);
+        if (Cwd::abs_path($dst) =~ m{$dst}) {
+            print STDERR "Hello nodekiller, please activate volume before running dd on $dst\n";
+            exit 1;
+        }
+    }
+}
+exec $dd, @ARGV;
